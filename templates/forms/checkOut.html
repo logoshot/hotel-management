@@ -1,0 +1,9 @@
+{% extends 'layouts/main.html' %} {% block title %}register{% endblock %} {%
+block content %}
+<h5>Check out</h5>
+<form method="POST" class="form">
+  {{form.roomId(class_='form-control
+  first-input',placeholder=form.roomId.label.text)}}
+  <input type="submit" class="btn btn-primary" value="submit" />
+</form>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'layouts/main.html' %} {% block title %}register{% endblock %} {%
+block content %}
+<h1 >reserve</h1>
+<form method="POST" class="form">
+  <table class="table table-hover">
+  <div class="form-group">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>房间类型</th>
+        <th>房间价格</th>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>single</td>
+        <td>{{ rooms['single'] }}</td>
+      <tr>
+        <th scope="row">2</th>
+        <td>double</td>
+        <td>{{ rooms['double'] }}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>king</td>
+        <td>{{ rooms['king'] }}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>triple</td>
+        <td>{{ rooms['triple'] }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>请输入个人信息并选择房间号</h3>
+  <div class="form-group">
+  {{form.name.label}} {{form.name(class_ =
+  'form-control',placeholder=form.name.label.text)}} 
+  </div>
+  <div class="form-group">
+  {{form.phone.label}}
+  {{form.phone(class_ = 'form-control',placeholder=form.phone.label.text)}}
+  </div>
+  <div>
+    {{form.roomId.label}}
+    {{form.roomId(class_ = 'form-control')}}
+  </div>
+  <div>
+    {{form.Id.label}}
+    {{form.Id(class_ = 'form-control last-input')}}
+  </div>
+  <input
+    type="submit"
+    value="reserve"
+    class="btn btn-primary btn-lg btn-block"
+  />
+</form>
+{% endblock %}

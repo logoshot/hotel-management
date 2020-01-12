@@ -1,0 +1,80 @@
+{% extends 'layouts/main.html' %} {% block title %}register{% endblock %} {%
+block content %}
+<h1>reserve</h1>
+<form method="POST" class="form">
+  <table class="table table-hover">
+  <div class="form-group">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>房间类型</th>
+        <th>房间价格</th>
+        <th>剩余数量</th>
+        <th></th>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>single</td>
+        <td>{{ rooms['single'] }}</td>
+        <td>{{ remains['single'] }}</td>
+        <td>
+            <a
+              href="{{url_for('main.reserve_info',roomType='single')}}"
+              class="btn btn-success"
+            >
+            choose it
+            </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>double</td>
+        <td>{{ rooms['double'] }}</td>
+        <td>{{ remains['double'] }}</td>
+        <td>
+            <a
+              href="{{url_for('main.reserve_info',roomType='double')}}"
+              class="btn btn-success"
+            >
+            choose it
+            </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>king</td>
+        <td>{{ rooms['king'] }}</td>
+        <td>{{ remains['king'] }}</td>
+        <td>
+            <a
+              href="{{url_for('main.reserve_info',roomType='king')}}"
+              class="btn btn-success"
+            >
+            choose it
+            </a>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>triple</td>
+        <td>{{ rooms['triple'] }}</td>
+        <td>{{ remains['triple'] }}</td>
+        <td>
+            <a
+              href="{{url_for('main.reserve_info',roomType='triple')}}"
+              class="btn btn-success"
+            >
+            choose it
+            </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input
+    type="submit"
+    value="reserve"
+    class="btn btn-primary btn-lg btn-block"
+  />
+</form>
+{% endblock %}

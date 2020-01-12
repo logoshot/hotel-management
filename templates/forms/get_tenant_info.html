@@ -1,0 +1,16 @@
+{% extends 'layouts/main.html' %} {% block title %}register{% endblock %} {%
+block content %}
+<h5>reserve</h5>
+<form method="POST" class="form">
+  <label>住客一</label>
+  {{form.name1(class_='form-control first-input',placeholder='姓名')}}
+  {{form.Id1(class_='form-control',placeholder='身份证号')}}
+  <label>住客二</label>
+  {{form.name2(class_='form-control first-input',placeholder='姓名')}}
+  {{form.Id2(class_='form-control',placeholder='身份证号')}}
+  <label>住客三</label>
+  {{form.name3(class_='form-control first-input',placeholder='姓名')}}
+  {{form.Id3(class_='form-control',placeholder='身份证号')}}
+  <input type="submit" value="submit" class="btn btn-primary" />
+</form>
+{% endblock %}

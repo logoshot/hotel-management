@@ -1,0 +1,28 @@
+{% extends 'layouts/main.html' %} {% block title %}Login{% endblock %} {% block
+content %}
+<form method="post" class="form">
+  <h3 class="form-heading">
+    Change room price
+    <a href="{{ url_for('main.home') }}" title="Back to homepage"
+      ><i class="fa fa-home pull-right"></i
+    ></a>
+  </h3>
+  <p>single</p>
+  {{ form.single(type = 'text', class_ = 'form-control first-input', placeholder
+  = previous['single'], required = false, autofocus = true) }}
+  <p>double</p>
+  {{form.double(type = 'text', class_ = 'form-control last-input', placeholder =
+  previous['double'], required = false) }}
+  <p>king</p>
+  {{ form.king(type = 'text', class_ = 'form-control first-input', placeholder =
+  previous['king'], required = false) }}
+  <p>triple</p>
+  {{form.triple(type = 'text', class_ = 'form-control last-input', placeholder =
+  previous['triple'], required = false) }}
+  <input
+    type="submit"
+    value="Submit"
+    class="btn btn-primary btn-lg btn-block"
+  />
+</form>
+{% endblock %}

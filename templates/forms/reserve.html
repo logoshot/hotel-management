@@ -1,0 +1,51 @@
+{% extends 'layouts/main.html' %} {% block title %}register{% endblock %} {%
+block content %}
+<h1>reserve</h1>
+<form method="POST" class="form">
+  <table class="table table-hover">
+  <div class="form-group">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>房间类型</th>
+        <th>房间价格</th>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>single</td>
+        <td>{{ rooms['single'] }}</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>double</td>
+        <td>{{ rooms['double'] }}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>king</td>
+        <td>{{ rooms['king'] }}</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>triple</td>
+        <td>{{ rooms['triple'] }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="form-group">
+    <label for="name">入住日期</label>
+    <input type="date" class="form-control" name="beginDate" />
+  </div>
+  <div class="form-group">
+  <div class="form-group">
+    <label for="name">离店日期</label>
+    <input type="date" class="form-control" name="endDate" />
+  </div>
+  <input
+    type="submit"
+    value="reserve"
+    class="btn btn-primary btn-lg btn-block"
+  />
+</form>
+{% endblock %}
