@@ -63,9 +63,14 @@ def change_room_price():
     previous = get_room_price_all()
     if request.method == 'POST':
         for name in names:
+            #获取表单数据
+            price = request.form.get(name,None)
+            #如果price为None，表示没有输入，则不修改
+            if not price:
+                continue
             info = {
                 'name' : name,
-                'price' : request.form.get(name)
+                'price' : price
             }
             change_price(info)
         return render_template('pages/placeholder.home.html')

@@ -60,15 +60,6 @@ class Admin(db.Model):
         self.phone = phone
         self.password = password
 
-    def to_dict(self):
-        dic = {
-            "Id": self.Id,
-            "name": self.name,
-            "phone": self.phone,
-            "password": self.password
-        }
-        return dic
-
 class Room_type(db.Model):
     '''
     name : single double king triple

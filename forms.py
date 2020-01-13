@@ -32,7 +32,10 @@ class ForgotForm(Form):
 
 class InsertRoom(Form):
     Id = TextField('Id', [DataRequired()])
-    roomType = TextField('roomType', [DataRequired()])
+    roomType = SelectField('roomType',
+     choices=[('single','single'),('double','double'),('king','king'),('triple','triple')],
+     validators=[DataRequired()]
+    )
 
 class ChangeRoomPrice(Form):
     single = TextField('single', [DataRequired()])

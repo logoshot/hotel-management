@@ -2,15 +2,15 @@
 content %}
 <form method="post" class="form">
   <h3 class="form-heading">
-    Login
+    新增房间
     <a href="{{ url_for('main.home') }}" title="Back to homepage"
       ><i class="fa fa-home pull-right"></i
     ></a>
   </h3>
   {{ form.Id(type = 'text', class_ = 'form-control first-input', placeholder =
   form.Id.label.text, required = true, autofocus = true) }} {{
-  form.roomType(type = 'text', class_ = 'form-control last-input', placeholder =
-  form.roomType.label.text, required = true) }}
+  form.roomType(type = 'text', class_ = 'form-control last-input',required =
+  true) }}
   <input
     type="submit"
     value="Submit"
