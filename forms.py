@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import TextField, PasswordField, SelectField
+from wtforms import TextField, PasswordField, SelectField, RadioField
 from wtforms.validators import DataRequired, EqualTo, Length
 
 # Set your classes here.
@@ -7,7 +7,7 @@ from wtforms.validators import DataRequired, EqualTo, Length
 
 class RegisterForm(Form):
     idCard = TextField(
-        'idCard', validators=[DataRequired(), Length(min=1, max=18)]
+        'idCard', validators=[DataRequired(), Length(min=6, max=18)]
     )
     name = TextField(
         'Username', validators=[DataRequired(), Length(min=6, max=25)]
@@ -22,8 +22,9 @@ class RegisterForm(Form):
     )
 
 class LoginForm(Form):
-    idCard = TextField('idCard', [DataRequired()])
+    idCard = TextField('idCard', [DataRequired(), Length(min=6, max=18)])
     password = PasswordField('Password', [DataRequired()])
+    typ = RadioField('type',choices=[('admin','admin'),('customer','customer')])
 
 class ForgotForm(Form):
     email = TextField(
@@ -57,7 +58,7 @@ class ReverseInfo(Form):
     name = TextField(label='name',validators=[DataRequired()])
     phone = TextField(label='phone',validators=[DataRequired()])
     roomId = SelectField(label='roomId',validators=[DataRequired()])
-    Id = TextField(label='IdCard',validators=[DataRequired()])
+    Id = TextField(label='IdCard',validators=[DataRequired(), Length(min=6, max=18)])
 
 class TenantInfo(Form):
     '''
@@ -65,12 +66,11 @@ class TenantInfo(Form):
     Id:住客身份证号
     '''
     name1 = TextField(label='name',validators=[DataRequired()])
-    Id1 = TextField(label='IdCard',validators=[DataRequired()])
+    Id1 = TextField(label='IdCard',validators=[DataRequired(), Length(min=6, max=18)])
     name2 = TextField(label='name')
-    Id2 = TextField(label='IdCard')
+    Id2 = TextField(label='IdCard',validators=[DataRequired(), Length(min=6, max=18)])
     name3 = TextField(label='name')
-    Id3 = TextField(label='IdCard')
+    Id3 = TextField(label='IdCard',validators=[DataRequired(), Length(min=6, max=18)])
 
 class CheckOut(Form):
     roomId = TextField(label='roomId',validators=[DataRequired()])
-

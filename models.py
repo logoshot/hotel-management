@@ -18,47 +18,73 @@ else:
     app.config.from_object('config')
     db.__init__(app)
 
-
 class Customer(db.Model):
     __tablename__ = "customers"
     Id = db.Column(db.String(30), primary_key=True)
     name = db.Column(db.String(50), nullable=False)
     phone = db.Column(db.String(20), nullable=True)
+    password = db.Column(db.String(50))
+    gender = db.Column(db.String(20))
+    email = db.Column(db.String(50))
+    age = db.Column(db.String(30))
+    birthday = db.Column(db.String(50))
+    address = db.Column(db.String(100))
 
-    def __init__(self,Id='0',name=None,phone=None,info=None):
+    def __init__(self,Id='0',name=None,phone=None,password=None,gender=None,email=None,age=None,birthday=None,address=None,info=None):
         if info:
-            try:
-                self.Id = info['Id']
-                self.name = info['name']
-                self.phone = info['phone']
-            except:
-                pass
-            return
-        self.Id = Id
-        self.name = name
-        self.phone = phone
-
-class Admin(db.Model):
-    __tablename__ = "admins"
-    Id = db.Column(db.String(30), primary_key=True)
-    name = db.Column(db.String(50), nullable=True)
-    phone = db.Column(db.String(20), nullable=True)
-    password = db.Column(db.String(30), nullable=True)
-
-    def __init__(self,Id='0',name=None,phone=None,password=None,info=None):
-        if info:
-            try:
-                self.Id = info['Id']
-                self.name = info['name']
-                self.phone = info['phone']
-                self.password = info['password']
-            except:
-                pass
+            self.Id = info.get('Id')
+            self.name = info.get('name')
+            self.phone = info.get('phone')
+            self.password = info.get('password')
+            self.gender = info.get('gender')
+            self.email = info.get('email')
+            self.age = info.get('age')
+            self.birthday = info.get('birthday')
+            self.address = info.get('address')
             return
         self.Id = Id
         self.name = name
         self.phone = phone
         self.password = password
+        self.gender = gender
+        self.email = email
+        self.age = age
+        self.birthday = birthday
+        self.address = address
+
+class Admin(db.Model):
+    __tablename__ = "admins"
+    Id = db.Column(db.String(30), primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    phone = db.Column(db.String(20), nullable=True)
+    password = db.Column(db.String(50))
+    gender = db.Column(db.String(20))
+    email = db.Column(db.String(50))
+    age = db.Column(db.String(30))
+    birthday = db.Column(db.String(50))
+    address = db.Column(db.String(100))
+
+    def __init__(self,Id='0',name=None,phone=None,password=None,gender=None,email=None,age=None,birthday=None,address=None,info=None):
+        if info:
+            self.Id = info.get('Id')
+            self.name = info.get('name')
+            self.phone = info.get('phone')
+            self.password = info.get('password')
+            self.gender = info.get('gender')
+            self.email = info.get('email')
+            self.age = info.get('age')
+            self.birthday = info.get('birthday')
+            self.address = info.get('address')
+            return
+        self.Id = Id
+        self.name = name
+        self.phone = phone
+        self.password = password
+        self.gender = gender
+        self.email = email
+        self.age = age
+        self.birthday = birthday
+        self.address = address
 
 class Room_type(db.Model):
     '''
@@ -72,8 +98,8 @@ class Room_type(db.Model):
     def __init__(self,Id='0',name=None,price=None,info=None):
         if info:
             try:
-                self.name = info['name']
-                self.price = info['price']
+                self.name = info.get('name')
+                self.price = info.get('price')
             except:
                 pass
             return
@@ -88,8 +114,8 @@ class Room(db.Model):
     def __init__(self,Id='0',roomType='single',info=None):
         if info:
             try:
-                self.Id = info['Id']
-                self.roomType = info['roomType']
+                self.Id = info.get('Id')
+                self.roomType = info.get('roomType')
             except:
                 pass
             return
@@ -124,23 +150,23 @@ class Order(db.Model):
         phone=None,reserveId=None,customerId=None,paid='0',adminId=None,info=None):
         if info:
             try:
-                self.Id = info['Id']
-                self.state = info['state']
-                self.roomId = info['roomId']
-                self.roomType = info['roomType']
-                self.price = info['price']
-                self.beginDate = info['beginDate']
-                self.endDate = info['endDate']
-                self.beginTime = info['beginTime']
-                self.endTime = info['endTime']
-                self.phone = info['phone']
-                self.reserveId = info['reserveId']
-                self.customerId = info['customerId']
-                self.paid = info['paid']
-                self.adminId = info['adminId']
-                self.Id1 = info['Id1']
-                self.Id2 = info['Id2']
-                self.Id3 = info['Id3']
+                self.Id = info.get('Id')
+                self.state = info.get('state')
+                self.roomId = info.get('roomId')
+                self.roomType = info.get('roomType')
+                self.price = info.get('price')
+                self.beginDate = info.get('beginDate')
+                self.endDate = info.get('endDate')
+                self.beginTime = info.get('beginTime')
+                self.endTime = info.get('endTime')
+                self.phone = info.get('phone')
+                self.reserveId = info.get('reserveId')
+                self.customerId = info.get('customerId')
+                self.paid = info.get('paid')
+                self.adminId = info.get('adminId')
+                self.Id1 = info.get('Id1')
+                self.Id2 = info.get('Id2')
+                self.Id3 = info.get('Id3')
             except:
                 pass
             return

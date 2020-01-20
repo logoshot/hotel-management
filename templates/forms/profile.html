@@ -1,0 +1,82 @@
+{% extends 'layouts/main.html' %} {% block title %}Login{% endblock %} {% block
+content %}
+<form method="post" class="form-horizontal" role="form">
+  <h3 class="form-heading">
+    profile
+    <a href="{{ url_for('main.home') }}" title="Back to homepage"
+      ><i class="fa fa-home pull-right"></i
+    ></a>
+  </h3>
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">名字</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        name="name"
+        placeholder="{{form.name}}"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">性别</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        name="gender"
+        placeholder="{{form.gender}}"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">邮箱</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        placeholder="{{form.email}}"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">年龄</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        name="age"
+        placeholder="{{form.age}}"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">生日</label>
+    <div class="col-sm-10">
+      <input
+        type="date"
+        class="form-control"
+        name="birthday"
+        placeholder="{{form.birthday}}"
+      />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="firstname" class="col-sm-2 control-label">住址</label>
+    <div class="col-sm-10">
+      <input
+        type="text"
+        class="form-control"
+        name="address"
+        placeholder="{{form.address}}"
+      />
+    </div>
+  </div>
+  <input
+    type="submit"
+    value="Submit"
+    class="btn btn-primary btn-lg btn-block"
+  />
+</form>
+{% endblock %}

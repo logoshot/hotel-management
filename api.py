@@ -10,6 +10,8 @@ def customer_not_in_db(Id):
     return True
 
 def new_customer(info):
+    if not info.get('password'):
+        info['password'] = info['Id'][-6:]
     cus = Customer(info=info)
     db.session.add(cus)
     db.session.commit()

@@ -9,8 +9,32 @@ content %}
   </h3>
   {{ form.idCard(class_ = 'form-control first-input', placeholder =
   form.idCard.label.text, required = true, autofocus = true) }} {{
-  form.password(class_ = 'form-control last-input', placeholder =
-  form.password.label.text, required = true) }}
+  form.password(class_ = 'form-control', placeholder = form.password.label.text,
+  required = true)}}
+
+  <div class="radio">
+    <label>
+      <input
+        type="radio"
+        name="type"
+        id="optionsRadios1"
+        value="admin"
+        checked
+      />
+      admin
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input
+        type="radio"
+        name="type"
+        id="optionsRadios2"
+        value="customer"
+      />customer
+    </label>
+  </div>
+  <div></div>
   <p class="pull-left">
     <a href="{{ url_for('auth.forgot') }}">Forgot Password?</a>
   </p>
@@ -22,6 +46,5 @@ content %}
     value="Submit"
     class="btn btn-primary btn-lg btn-block"
   />
-
 </form>
 {% endblock %}

@@ -129,10 +129,6 @@ def reserve_info():
             })
 
         #生成订单
-        print (session['roomType'])
-        print ()
-        print ()
-        print ()
         order = Order(
             Id=generator_id(), #生成订单号
             state=Order.RESERVATION,
